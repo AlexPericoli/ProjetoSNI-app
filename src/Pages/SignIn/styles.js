@@ -4,12 +4,12 @@ export const Container = styled.View`
    flex: 1;
    align-items: center;
    justify-content: center;
-   background-color: ${(props) => props.theme.fundo_azul_sni};
+   background-color: ${(props) => props.theme.fundo_padrao};
 `;
 
 export const LogoArea = styled.View`
-   width: 63%;
-   height: 40%;
+   width: 53%;
+   height: 30%;
    padding: 10px;
    margin-bottom: 10px;
    background-color: ${(props) => props.theme.branco_1};
@@ -21,14 +21,14 @@ export const Logotipo = styled.Image`
 `;
 
 export const Titulo = styled.Text`
-   color: #fff;
+   color: #000;
    font-size: 37px;
    font-family: 'Roboto-Medium';
 `;
 
 export const Texto = styled.Text`
-   color: #fff;
-   font-size: 24px;
+   color: #149;
+   font-size: 19px;
    font-family: 'Archivo-Medium';
 `;
 
@@ -41,27 +41,29 @@ export const FormArea = styled.View`
 `;
 
 export const InputEmail = styled.TextInput`
-   width: 80%;
+   width: 100%;
    font-size: 18px;
    font-family: 'Archivo-Medium';
    padding: 10px 12px;
-   background-color: #ddd;
    margin-bottom: 11px;
    border-radius: 15px;
+   border-bottom-color: #000;
+   border-bottom-width: 1px;
 `;
 
 export const InputPassword = styled.TextInput`
-   width: 80%;
+   width: 100%;
    font-size: 18px;
    font-family: 'Archivo-Medium';
    padding: 10px 12px;
-   background-color: #ddd;
    margin-bottom: 15px;
    border-radius: 15px;
+   border-bottom-color: #000;
+   border-bottom-width: 1px;
 `;
 
 export const ButtonLogin = styled.TouchableOpacity`
-   width: 80%;
+   width: 100%;
    border-radius: 15px;
    background-color: ${(props) => props.theme.botao_login};
 `;
@@ -69,7 +71,7 @@ export const ButtonLogin = styled.TouchableOpacity`
 export const ButtonLoginText = styled.Text`
    padding: 10px;
    text-align: center;
-   color: #000;
+   color: ${(props) => props.theme.texto_escuro_1};;
    font-size: 16px;
    font-family: 'Archivo-Bold';
 `;

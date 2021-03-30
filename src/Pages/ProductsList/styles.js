@@ -12,25 +12,23 @@ export const Container = styled.View`
 `;
 
 export const CommandArea = styled.View`
-   margin-top: 15px;
+   margin-top: 5px;
    width: 95%;
 `;
 
 export const CategoriasTitulo = styled.Text`
    color: ${Preto1};
-   font-size: 17px;
+   font-size: 14px;
 `;
 
 export const CategoriasProduto = styled.ScrollView`
    width: 100%;
-   padding: 0 10px;
 `;
 
 export const CategoriaItemButton = styled.TouchableOpacity`
    padding: 4px 7px;
-   margin-right: 13px;
+   margin-right: 9px;
    border-radius: 6px;
-   border: 2px solid ${ListaProdutos_BotaoCategoria};
    background-color: ${(props) => props.active};
 `;
 
@@ -42,7 +40,7 @@ export const CategoriaItemText = styled.Text`
 export const ProductsArea = styled.View`
    width: 95%;
    height: 80%;
-   margin-top: 20px;
+   margin-top: 10px;
 `;
 
 export const ProductList = styled.FlatList`

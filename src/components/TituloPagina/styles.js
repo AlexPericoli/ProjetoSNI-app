@@ -2,17 +2,12 @@ import styled from 'styled-components/native';
 
 export const TituloArea = styled.View`
    width: 100%;
-   height: 55px;
-   align-items: center;
-   justify-content: center;
-   flex-direction: row;
-   background-color: ${(props) => props.corFundo};
-`;
+   padding: 7px;
 
-export const TituloIcone = styled.Image`
-   width: 55px;
-   height: 55px;
-   margin-right: 20px;
+   align-items: flex-start;
+   justify-content: flex-start;
+
+   background-color: ${(props) => props.corFundo};
 `;
 
 export const TituloTexto = styled.Text`
@@ -21,8 +16,13 @@ export const TituloTexto = styled.Text`
    color: ${(props) => props.corTexto};
 `;
 
-export const CategoriaTexto = styled.Text`
-   font-size: 17px;
-   font-family: 'Archivo-Bold';
-   color: ${(props) => props.corTexto};
+export const SubTitulo = styled.Text`
+   color: #dd7;
+   font-size: 13px;
+`;
+
+export const TituloIcone = styled.Image`
+   width: 55px;
+   height: 55px;
+   margin-right: 20px;
 `;

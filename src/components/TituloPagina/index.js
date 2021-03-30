@@ -1,13 +1,17 @@
 import React from 'react';
-import { TituloArea, TituloIcone, TituloTexto } from './styles';
+import { useSelector } from 'react-redux';
+import { TituloArea, SubTitulo, TituloIcone, TituloTexto } from './styles';
 
 export default function TituloPagina({ corTexto, corFundo, texto }) {
+   const nome = useSelector((state) => state.usuarios.nome);
+   const nome_al = useSelector((state) => state.usuarios.nome_assoc_local);
+   const nome_funcao = useSelector((state) => state.usuarios.nome_funcao);
+
    return (
       <TituloArea corFundo={corFundo}>
-         {/*}
-      <TitleIcon source={require('../../assets/icones/livros.png')} />
-      {*/}
          <TituloTexto corTexto={corTexto}>{texto}</TituloTexto>
+         <SubTitulo>{nome_funcao } {nome}</SubTitulo>
+         <SubTitulo>Núcleo {nome_al}</SubTitulo>
       </TituloArea>
    );
 }

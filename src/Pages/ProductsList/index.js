@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 import api from '../../services/api';
 
 import TituloPagina from '../../components/TituloPagina';
-import ProductItem from '../../components/ProductItem';
+import CardProduct from '../../components/CardProduct';
 
 import {
    Container,
@@ -17,6 +18,7 @@ import {
 } from './styles';
 
 export default function ProductsList() {
+   const token = useSelector((state) => state.usuarios.token);
    const navigation = useNavigation();
 
    const [productsFlatList, setProductsFlatList] = React.useState([]);
@@ -25,18 +27,23 @@ export default function ProductsList() {
 
    React.useEffect(() => {
       carregaCategorias();
-      carregaProdutos(1);
+      carregaProdutos(1, 4);
    }, []);
 
    async function carregaCategorias() {
-      const categorias = await api.get('/categorias');
+      let headers = { 'Content-Type': 'application/json' };
+      if (token) {
+         headers.Authorization = `Bearer ${token}`;
+      }
+
+      const categorias = await api.get('categorias', { headers });
       setListaCategorias(categorias.data);
    }
 
-   async function carregaProdutos(categoria) {
-      const produtos = await api.get('produtos', { params: { categoria } });
+   async function carregaProdutos(id_categoria, id_al) {
+      const produtos = await api.get(`produtos/${id_categoria}/${id_al}`);
       setProductsFlatList(produtos.data);
-      setCategoriaAtiva(categoria);
+      setCategoriaAtiva(id_categoria);
    }
 
    return (
@@ -46,12 +53,12 @@ export default function ProductsList() {
             <CategoriasTitulo>Categorias</CategoriasTitulo>
             <CategoriasProduto
                horizontal={true}
-               contentContainerStyle={{ paddingVertical: 10 }}>
+               contentContainerStyle={{ paddingVertical: 4 }}>
                {listaCategorias.map((item, index) => {
                   return (
                      <CategoriaItemButton
-                        key={item.id}
-                        onPress={() => carregaProdutos(item.id)}
+                        key={index}
+                        onPress={() => carregaProdutos(item.id, 4)}
                         active={categoriaAtiva === item.id ? '#d81' : '#ddc'}>
                         <CategoriaItemText>{item.descricao}</CategoriaItemText>
                      </CategoriaItemButton>
@@ -62,9 +69,9 @@ export default function ProductsList() {
          <ProductsArea>
             <ProductList
                data={productsFlatList}
-               keyExtractor={(product) => String(product.id)}
+               //keyExtractor={(product) => String(product.id)}
                renderItem={({ item }) => (
-                  <ProductItem data={item} navigation={navigation} />
+                  <CardProduct data={item} navigation={navigation} />
                )}
             />
          </ProductsArea>

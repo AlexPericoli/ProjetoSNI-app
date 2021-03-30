@@ -8,14 +8,18 @@ import {
    AreaImagem,
    AreaVendas,
    AreaBotao,
+   TextArea,
    ProdutoNome,
    ProdutoDescricao,
    ProdutoInfo,
+   ProdutoInfoBold,
+   ProdutoInfoPreco,
    ProdutoInfoDestaque,
    ProdutoImagem,
    VendasScroll,
    BotaoAdicionarVenda,
    BotaoAdicionarVendaTexto,
+   Separador
 } from './styles';
 
 import Config from '../../../config/config';
@@ -42,9 +46,14 @@ export default function DetalhesProd() {
                   <ProdutoImagem source={{ uri: image_url }} />
                </AreaImagem>
                <AreaInfo>
-                  <ProdutoInfoDestaque>Vendas hoje: 16</ProdutoInfoDestaque>
-                  <ProdutoInfo>Vendas no mês: 94</ProdutoInfo>
-                  <ProdutoInfo>Em estoque: 03</ProdutoInfo>
+                  <TextArea>
+                     <ProdutoInfoBold>Autor:</ProdutoInfoBold>
+                     <ProdutoInfo>{dadosProduto.descricao}</ProdutoInfo>
+                     <Separador />
+                     <ProdutoInfo>Vendas no mês: 10</ProdutoInfo>
+                     <ProdutoInfo>Estoque: 07</ProdutoInfo>
+                     <ProdutoInfoPreco>R$ {dadosProduto.valor.toFixed(2)}</ProdutoInfoPreco>
+                  </TextArea>
                   <AreaBotao>
                      <BotaoAdicionarVenda>
                         <BotaoAdicionarVendaTexto>
@@ -67,70 +76,42 @@ export default function DetalhesProd() {
                      <ProdutoDescricao style={{ fontWeight: 'bold' }}>
                         01
                      </ProdutoDescricao>{' '}
-                     unidade(s) às{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        19:21:00h
-                     </ProdutoDescricao>
-                  </ProdutoDescricao>
-                  <ProdutoDescricao>
-                     -{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        02
-                     </ProdutoDescricao>{' '}
-                     unidade(s) às{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        19:21:00h
-                     </ProdutoDescricao>
-                  </ProdutoDescricao>
-                  <ProdutoDescricao>
-                     -{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        03
-                     </ProdutoDescricao>{' '}
-                     unidade(s) às{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        19:21:00h
-                     </ProdutoDescricao>
-                  </ProdutoDescricao>
-                  <ProdutoDescricao>
-                     -{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        04
-                     </ProdutoDescricao>{' '}
-                     unidade(s) às{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        20:49:16h
-                     </ProdutoDescricao>
-                  </ProdutoDescricao>
-                  <ProdutoDescricao>
-                     -{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        03
-                     </ProdutoDescricao>{' '}
-                     unidade(s) às{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        20:49:16h
-                     </ProdutoDescricao>
-                  </ProdutoDescricao>
-                  <ProdutoDescricao>
-                     -{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        02
-                     </ProdutoDescricao>{' '}
-                     unidade(s) às{' '}
-                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        20:49:16h
-                     </ProdutoDescricao>
+                     unidade. 11/03/21{' '}19:21:00h
                   </ProdutoDescricao>
                   <ProdutoDescricao>
                      -{' '}
                      <ProdutoDescricao style={{ fontWeight: 'bold' }}>
                         01
                      </ProdutoDescricao>{' '}
-                     unidade(s) às{' '}
+                     unidade. 11/03/21{' '}19:21:00h
+                  </ProdutoDescricao>
+                  <ProdutoDescricao>
+                     -{' '}
                      <ProdutoDescricao style={{ fontWeight: 'bold' }}>
-                        20:49:16h
-                     </ProdutoDescricao>
+                        01
+                     </ProdutoDescricao>{' '}
+                     unidade. 11/03/21{' '}19:21:00h
+                  </ProdutoDescricao>
+                  <ProdutoDescricao>
+                     -{' '}
+                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
+                        01
+                     </ProdutoDescricao>{' '}
+                     unidade. 11/03/21{' '}19:21:00h
+                  </ProdutoDescricao>
+                  <ProdutoDescricao>
+                     -{' '}
+                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
+                        01
+                     </ProdutoDescricao>{' '}
+                     unidade. 11/03/21{' '}19:21:00h
+                  </ProdutoDescricao>
+                  <ProdutoDescricao>
+                     -{' '}
+                     <ProdutoDescricao style={{ fontWeight: 'bold' }}>
+                        01
+                     </ProdutoDescricao>{' '}
+                     unidade. 11/03/21{' '}19:21:00h
                   </ProdutoDescricao>
                </VendasScroll>
             </AreaVendas>

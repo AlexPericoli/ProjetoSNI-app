@@ -7,10 +7,10 @@ import {
    FotoArea,
    FotoProduto,
    ProdItemTitle,
-   ProdItemInfo,
+   CardBody,
+   TextArea,
    ProdInfoDescricao,
    ProdInfoPreco,
-   ProdInfoPrecoText,
    BotaoDetalhes,
    BotaoDetalhesArea,
    BotaoDetalhesTexto,
@@ -18,7 +18,7 @@ import {
 
 import Config from '../../../config/config';
 
-export default function ProductItem({ data, navigation }) {
+export default function CardProduct({ data, navigation }) {
    const { imagem } = data;
    const image_url = `${Config.APP_URL}:8081/src/assets/produtos/${imagem}.jpg`;
 
@@ -26,26 +26,28 @@ export default function ProductItem({ data, navigation }) {
       <Container>
          <ProdItemTitle>{data.nome}</ProdItemTitle>
          <ProdInfoDescricao>{data.descricao}</ProdInfoDescricao>
-         <ProdItemInfo>
+         <CardBody>
+            <FotoArea>
+               <FotoProduto source={{ uri: image_url }} />
+            </FotoArea>
             <InfoArea>
-               <ProdInfo>Vendas no mês: 10</ProdInfo>
-               <ProdInfo>Estoque: 07</ProdInfo>
+               <TextArea>
+                  <ProdInfo>Vendas no mês: 10</ProdInfo>
+                  <ProdInfo>Estoque: {data.qtd}</ProdInfo>
+                  <ProdInfoPreco>R$ {data.valor.toFixed(2)}</ProdInfoPreco>
+               </TextArea>
+
                <BotaoDetalhesArea>
                   <BotaoDetalhes
                      onPress={() =>
                         navigation.navigate('DetalhesProd', { data })
                      }>
-                     <BotaoDetalhesTexto>Detalhes</BotaoDetalhesTexto>
+                     <BotaoDetalhesTexto>Ver detalhes</BotaoDetalhesTexto>
                   </BotaoDetalhes>
                </BotaoDetalhesArea>
-               <ProdInfoPreco>
-                  <ProdInfoPrecoText>R$ {data.valor},00</ProdInfoPrecoText>
-               </ProdInfoPreco>
+
             </InfoArea>
-            <FotoArea>
-               <FotoProduto source={{ uri: image_url }} />
-            </FotoArea>
-         </ProdItemInfo>
+         </CardBody>
       </Container>
    );
 }
